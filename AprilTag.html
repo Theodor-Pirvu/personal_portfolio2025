@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AprilTag Alignment - Project Details | Theodor Pirvu</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Your main stylesheet -->
+    <!-- Add a link to a new CSS file for this specific project page style if preferred,
+         or add the styles below to your main style.css -->
+</head>
+<body>
+    <header class="minimal-header">
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">Theodor Pirvu</a>
+            </div>
+            <div class="nav-links-minimal">
+                <a href="projects.html">← All Projects</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="project-detail-layout-js">
+
+        <!-- HERO SECTION -->
+        <section class="project-hero-js">
+            <div class="container">
+                <h1 class="project-title-js">AprilTag Alignment</h1>
+                <p class="project-tagline-js">Real-time AprilTag alignment system to navigate and score with precision during robot autonomous mode.</p>
+                <div class="project-meta-js">
+                    <div><strong>Role:</strong> Lead Developer</div>
+                    <div><strong>Year:</strong> 2023</div>
+                    <div><strong>Context:</strong> Chanhassen Highschool Robotics</div>
+                </div>
+                <!-- <div class="project-tech-stack-js">
+                    <span>Tech Used:</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Figma</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                </div> -->
+                <!-- <div class="project-links-js">
+                    <a href="[Link to Live Demo]" target="_blank" class="btn btn-primary-js">View Live Project →</a>
+                    <a href="[Link to Source Code]" target="_blank" class="btn btn-secondary-js">View Code Repository</a>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="project-content-wrapper-js">
+
+            <!-- Optional: Full-width intro image/video -->
+            <section class="half-video">
+                <!-- <img src="images/AprilTag Project File/robot align stack.mp4" alt="[Main visual for the project]"> -->
+                 <video class="half-video" width="50px" height="100px" src="images/AprilTag Project File/robot align stack.mp4" autoplay muted loop playsinline></video>
+                 <figcaption>Fig. 1: Robot aligning to AprilTag at a pixel stack using camera data.</figcaption>
+            </section>
+
+            <div class="container content-column-js">
+                <section id="the-brief">
+                    <h2>Overview</h2>
+                    <p>
+                        The objective of this project was to develop a reliable and precise alignment system that would enable our FTC robot to 
+                        detect and align with AprilTags placed around the field during the CenterStage 2023–2024 season. The goal was to improve autonomous
+                        accuracy by allowing the robot to localize itself and dynamically correct its position relative to field elements. I implemented this 
+                        system by integrating AprilTag detection using FTCVisionLib, and combining it with PID control, drivetrain odometry, and speed regulation.
+                         This allowed the robot to make smooth, real-time adjustments to its orientation and position, resulting in more consistent autonomous performance and better scoring opportunities.
+                    </p>
+                </section>
+
+                <!-- <section id="my-role-contribution">
+                    <h2>My Role & Contribution</h2>
+                    <p>
+                        [Detail your specific responsibilities and contributions to the project.
+                        Were you part of a team? What specific tasks did you own? Highlight your impact.]
+                        Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit.
+                        Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, ac tincidunt ante orci quis nisi.
+                    </p>
+                </section> -->
+            </div> <!-- End .content-column-js -->
+
+            <!-- Example of an interspersed full-width image -->
+            <!-- <section class="half-photo">
+                <img class="half-photo" src="images/AprilTag Project File/robot math 1.jpg" alt="math 1">
+            </section> -->
+
+            <div class="container content-column-js">
+                <section id="the-process">
+                    <h2>The Process & Approach</h2>
+
+                    <h3>
+                        Planning and Diagram
+                    </h3>
+                    <p>
+                        The name of the game was accuracy, so we wanted to improve the accuracy of our pickup and scoring to reduce human error as much as possible.
+                        I worked with my coach to develop a timeline for this project, including section deadlines and tournament dates so we could estimate the time we
+                        had allocated.  
+                    </p>
+                    <figure class="in-content-image">
+                        <img src="images/AprilTag Project File/robot math 1.jpg" alt="math 1">
+                        <figcaption>Fig. 2: Early diagram for PID functionality with odometry and motors.</figcaption>
+                    </figure>
+                    <p>
+                        We started to develop a digram for foundation of the alignment, and our speed control functionality too. This diagram would serve as the blueprint for all the different 
+                        components, which made programming much easier. We would start by gathering localization data from the odometry of the robots, including the forward, rotation, and strafe. 
+                        This localization would help us determine where the bot is relative to the field, as well as help determine its actual position compared to desired position. 
+                    </p>
+                    <p>
+                        The closed loop PID block is responsible for the correction of error that it is fed. For manual positioning (ie. with the controller), the PID calculation block is fed 
+                        the localization data from the odometry, as well as the desired position from the imu of the robot. For example, if the robot is stationary, but there is an external key-features-outcome
+                        that pushes the robot, it will calculate the motor powers in order to correct to its original position. This same PID block can also be used when aligning to april tags. Using the localization 
+                        data of the robot relative to the AprilTag, it can be fed to the PID in order to caluclate the motor powers to correct to the tag.  
+                    </p>
+                    <p>
+                        Finally the mecanum block is reposinsible for the application of correctional data to the mecanum wheels. Mecanum wheels can be tricky to operate with, so in this mecanum block we assign x, y, and yaw 
+                        directions, and the order of setting power. Since these constant corrections constantly use power, a power averaging system is implemented so that a max power variable is created to make sure the motors 
+                        get assigned a power value reasonable to the battery percentage. 
+                    </p>
+
+                    <figure class="in-content-image">
+                        <img src="images/AprilTag Project File/flow chart.png" alt="math 1">
+                        <figcaption>Fig. 3: Final & digitalized version </figcaption>
+                    </figure>
+                    
+                    <h3>
+                        AprilTag Positioning & Localization
+                    </h3>
+                    <p>
+                        Through the vision portal library, it's possbile to retreive the AprilTag data relative to the robot. This is done through a camera whose position can be calibrated in order to obtain accurate data. 
+                        We retreive the range, heading, and yaw error from the AprilTag, and then use it in it's own closed loop PID before being fed to the main PID function. This essentially creates a double looped PID, which 
+                        we found to be extremely accurate.  
+                    </p>
+                    <figure class="in-content-image">
+                        <img src="images/AprilTag Project File/robot POV.png" alt="math 1">
+                        <figcaption>Fig. 4: Robot POV of AprilTag (camera flipped)</figcaption>
+                    </figure>
+                    <p>
+                        Here in figure 4 is an image of what the robot sees. We assign a desired tag for the aligning to use, and it will use that data. We used 3d Zephyr for calibration. 
+                    </p>
+                    <!-- A container for your new styled code block -->
+<div class="code-container">
+    <div class="cm-scroller">
+        <div class="cm-content">
+            <pre><code><span class="keyword">double</span>  <span class="variable">rangeError</span> <span class="operator">=</span> <span class="paren">(</span><span class="object">desiredTag</span><span class="punctuation">.</span><span class="property">ftcPose</span><span class="punctuation">.</span><span class="property">range</span> <span class="operator">-</span> <span class="variable">DESIRED_DISTANCE</span><span class="paren">)</span><span class="punctuation">;</span>
+<span class="keyword">double</span>  <span class="variable">headingError</span> <span class="operator">=</span> <span class="object">desiredTag</span><span class="punctuation">.</span><span class="property">ftcPose</span><span class="punctuation">.</span><span class="property">bearing</span><span class="punctuation">;</span>
+<span class="keyword">double</span>  <span class="variable">yawError</span> <span class="operator">=</span> <span class="object">desiredTag</span><span class="punctuation">.</span><span class="property">ftcPose</span><span class="punctuation">.</span><span class="property">yaw</span><span class="punctuation">;</span></code></pre>
+        </div>
+    </div>
+</div>
+                    <p>
+                        The nice part of the AprilTag library is that it obtains the data for you, but it gives very raw values which require some editing to fit the purpose. Here we 
+                        get the range error, heading error, and yaw error that will be used for the first closed loop PID.   
+                    </p>
+                    
+                    <div class="code-container">
+    <div class="cm-scroller">
+        <div class="cm-content">
+            <pre><code><span class="variable">drive</span>  <span class="operator">=</span> <span class="object">Range</span><span class="punctuation">.</span><span class="function">clip</span><span class="paren">((</span><span class="variable">rangeError</span> <span class="operator">*</span> <span class="variable">SPEED_PGAIN</span><span class="paren">)</span><span class="punctuation">,</span> <span class="operator">-</span><span class="variable">MAX_AUTO_SPEED</span><span class="punctuation">,</span> <span class="variable">MAX_AUTO_SPEED</span><span class="paren">)</span><span class="punctuation">;</span>
+<span class="variable">turn</span>   <span class="operator">=</span> <span class="object">Range</span><span class="punctuation">.</span><span class="function">clip</span><span class="paren">((</span><span class="variable">headingError</span> <span class="operator">*</span> <span class="variable">TURN_PGAIN</span><span class="paren">)</span><span class="punctuation">,</span> <span class="operator">-</span><span class="variable">MAX_AUTO_TURN</span><span class="punctuation">,</span> <span class="variable">MAX_AUTO_TURN</span><span class="paren">)</span> <span class="punctuation">;</span>
+<span class="variable">strafe</span> <span class="operator">=</span> <span class="object">Range</span><span class="punctuation">.</span><span class="function">clip</span><span class="paren">((</span><span class="operator">-</span><span class="variable">yawError</span> <span class="operator">*</span> <span class="variable">STRAFE_PGAIN</span><span class="paren">)</span><span class="punctuation">,</span> <span class="operator">-</span><span class="variable">MAX_AUTO_STRAFE</span><span class="punctuation">,</span> <span class="variable">MAX_AUTO_STRAFE</span><span class="paren">)</span><span class="punctuation">;</span></code></pre>
+        </div>
+    </div>
+</div>
+                    <p>
+                        This snippet of code shows the first closed PID loop before it's fed to the main PID. This performs the bulk of correction, as the main block operates at finer levels, allowing
+                        for higher accuracy in tighter ranges. Here, we only use proportional gain at a higher value for a more aggressive correction. The Range.clip() clamps this big correction calculation to the max value allocated for that certain movement in 
+                        order to avoid any explosive movements. 
+                    </p>
+
+                    <figure class="in-content-image">
+                        <img src="images/AprilTag Project File/dashboard.png" alt="math 1">
+                        <figcaption>Fig. 5: Localization with desired and actual position</figcaption>
+                    </figure>
+                    <p>
+                        Figure 5 is a photo of the robot positioning on a virtual field. It gives us a visual of the desired robot position versus the actual position. 
+                        Here, the blue circle is the robot desired position, and the green is the actual position. This is when it corrects to its desired position during manual mode (human controller) by using odometry and IMU data.
+                        Since it keeps up relatively well with the desired position, I didn't think it was necessary to include a premature closed PID loop like how it's included in the AprilTags. 
+                    </p>
+
+                    <h3>
+                        Main PID Controller
+                    </h3>
+                    <p>
+                        The values generated from the AprilTags and localization are transformed into commands that are processed through this PID loop before applied to the motors. 
+                    </p>
+
+                    <div class="code-container">
+    <div class="cm-scroller">
+        <div class="cm-content">
+            <span class="comment">//Odometry Estimation</span>
+            <pre><code><span class="variable">xEstimate</span> <span class="operator">=</span> <span class="paren">((</span><span class="object">myLocalizer</span><span class="punctuation">.</span><span class="function">getWheelVelocities</span><span class="paren">()</span><span class="punctuation">.</span><span class="function">get</span><span class="paren">(</span><span class="number">0</span><span class="paren">))</span> <span class="operator">+</span> 
+        <span class="paren">(</span><span class="object">myLocalizer</span><span class="punctuation">.</span><span class="function">getWheelVelocities</span><span class="paren">()</span><span class="punctuation">.</span><span class="function">get</span><span class="paren">(</span><span class="number">1</span><span class="paren">)))</span> <span class="operator">/</span> <span class="number">2</span><span class="punctuation">;</span>         <span class="comment">//return forward/back estimate</span>
+
+<span class="variable">rotEstimate</span> <span class="operator">=</span> <span class="paren">((</span><span class="object">myLocalizer</span><span class="punctuation">.</span><span class="function">getWheelVelocities</span><span class="paren">()</span><span class="punctuation">.</span><span class="function">get</span><span class="paren">(</span><span class="number">1</span><span class="paren">))</span> <span class="operator">-</span> 
+        <span class="paren">(</span><span class="object">myLocalizer</span><span class="punctuation">.</span><span class="function">getWheelVelocities</span><span class="paren">()</span><span class="punctuation">.</span><span class="function">get</span><span class="paren">(</span><span class="number">0</span><span class="paren">)))</span> <span class="operator">/</span> <span class="variable">track_width</span><span class="punctuation">;</span>  <span class="comment">//return rotation estimate</span>
+
+<span class="variable">strafeEstimate</span> <span class="operator">=</span> <span class="object">myLocalizer</span><span class="punctuation">.</span><span class="function">getWheelVelocities</span><span class="paren">()</span><span class="punctuation">.</span><span class="function">get</span><span class="paren">(</span><span class="number">2</span><span class="paren">)</span> <span class="operator">-</span> 
+        <span class="variable">rotEstimate</span><span class="punctuation">;</span>                                      <span class="comment">//return strafe estimate</span>
+
+<span class="comment">//X Calculation</span>
+<span class="variable">posForward</span><span class="punctuation">.</span><span class="function">setPID</span><span class="paren">(</span><span class="variable">Kp</span><span class="punctuation">,</span> <span class="variable">Ki</span><span class="punctuation">,</span> <span class="variable">Kd</span><span class="paren">)</span><span class="punctuation">;</span>                   <span class="comment">//custom PID gains</span>
+<span class="variable">forwardRamp</span><span class="punctuation">.</span><span class="property">targetValue</span> <span class="operator">=</span> <span class="variable">forwardCommand</span> <span class="operator">*</span> <span class="number">130</span><span class="punctuation">;</span>  <span class="comment">//ramp target</span>
+<span class="variable">forwardRamp</span><span class="punctuation">.</span><span class="function">update</span><span class="paren">()</span><span class="punctuation">;</span>
+<span class="variable">outForward</span> <span class="operator">=</span> <span class="variable">posForward</span><span class="punctuation">.</span><span class="function">calculate</span><span class="paren">(</span><span class="variable">xEstimate</span><span class="punctuation">,</span> <span class="variable">forwardRamp</span><span class="punctuation">.</span><span class="property">outputValue</span> <span class="paren">)</span> <span class="operator">+</span> <span class="variable">forwardCommand</span> <span class="punctuation">;</span>
+
+<span class="comment">//Y Calculation</span>
+<span class="variable">posStrafe</span><span class="punctuation">.</span><span class="function">setPID</span><span class="paren">(</span><span class="variable">KpS</span><span class="punctuation">,</span> <span class="variable">KiS</span><span class="punctuation">,</span> <span class="variable">KdS</span><span class="paren">)</span><span class="punctuation">;</span>
+<span class="variable">outStrafe</span> <span class="operator">=</span> <span class="variable">posStrafe</span><span class="punctuation">.</span><span class="function">calculate</span><span class="paren">(</span><span class="variable">strafeEstimate</span><span class="punctuation">,</span> <span class="function">squareX</span><span class="paren">(</span><span class="operator">-</span><span class="object">gamepad1</span><span class="punctuation">.</span><span class="property">left_stick_x</span><span class="paren">)</span> <span class="operator">*</span> <span class="number">75</span><span class="paren">)</span> <span class="operator">+</span> <span class="variable">strafeCommand</span><span class="punctuation">;</span>
+
+<span class="comment">//Yaw Calculation</span>
+<span class="variable">posRotation</span><span class="punctuation">.</span><span class="function">setPID</span><span class="paren">(</span><span class="variable">KpR</span><span class="punctuation">,</span> <span class="variable">Ki</span><span class="punctuation">,</span> <span class="variable">Kd</span><span class="paren">)</span><span class="punctuation">;</span>
+<span class="variable">turnRamp</span><span class="punctuation">.</span><span class="property">targetValue</span> <span class="operator">=</span> <span class="variable">turnCommand</span> <span class="operator">*</span> <span class="number">40</span><span class="punctuation">;</span>
+<span class="variable">turnRamp</span><span class="punctuation">.</span><span class="function">update</span><span class="paren">()</span><span class="punctuation">;</span></code></pre>
+<span class="variable">outRotation</span> <span class="operator">=</span> <span class="variable">posRotation</span><span class="punctuation">.</span><span class="function">calculate</span><span class="paren">(</span><span class="variable">rotEstimate</span><span class="punctuation">,</span> <span class="variable">turnRamp</span><span class="punctuation">.</span><span class="property">outputValue</span><span class="paren">)</span> <span class="operator">+</span> <span class="variable">turnCommand</span> <span class="punctuation">;</span>
+        </div>
+    </div>
+</div>
+                    <p>
+                        In the Odometry Estimation section, this is where the robot field estimation is calculated. When aligning to an AprilTag, the data retreived from it will simply be added after the calculation to the desired position.  
+                    </p>
+                    <p>
+                        Each movement has its own PID controller with a unique set of gains. This is because some movements are harder to perform compared to others on a mecanum drivetrain. 
+                    </p>
+                    <p>
+                        While some movements are harder to perform, some are too easy. For example, commanding the robot to go to a certain position at once can make the movement feel jerky and make it inaccurate. 
+                        This is why a ramp is implemented to slowly increment the forward command to make accelerating and deceleration much smoother, not only making it more accurate but also give the drivers a better sense of 
+                        control while in manual mode. 
+                    </p>
+
+                    <p>
+                        Finally, the motor command is calculated by using a built in method from the library. I was initially thinking making a custom PID loop, but after running some benchmark tests, it slowed the program update rate which negatively impacted sensors on the robot.  
+                    </p>
+                <p>
+                    The calculated values from the PID loops are then fed into the motor commander, where power is distributed to the motors. 
+                </p>
+
+                </section>
+
+                <section id="key-features-outcome">
+                    <h2>Outcome</h2>
+                    <p>
+                        The project benefited the robot and team tremendously. The season game was contact heavy, and having this project gave the robot an advantage on the 
+                        field. It allowed us to reach the division final and give us a seat at the CRI tournament (Chicago Robotics Invitational).
+                    </p>
+                    <!-- <ul>
+                        <li><strong>Feature 1:</strong> [Description of feature and its benefit.]</li>
+                        <li><strong>Feature 2:</strong> [Description of feature and its benefit.]</li>
+                        <li><strong>Feature 3:</strong> [Description of feature and its benefit.]</li>
+                    </ul> -->
+                    <p>
+                        Even though this was created 2 years ago in 2023, our team still uses this heavily as our main chassis controller, as it's just so effective
+                        in competitve and heavy contact situation. 
+                    </p>
+                </section>
+
+                 <section id="learnings-takeaways">
+                    <h2>Learnings & Takeaways</h2>
+                    <p>
+                        I learned a ton from this project, as it was my first time diving this deep into PID controllers, AprilTag recognition, and robot localization. 
+                        I explored how encoders are used to calculate a robot's position and rotation, and how these values feed into PID controllers to minimize errors. 
+                        I also learned the difference between open-loop and closed-loop control systems, and why closed-loop systems are more reliable for precise movement.
+                        Overall it was a fun challenge, and it helped me better understand how control theory and sensor feedback work together to guide a robot effectively.
+                    </p>
+                </section>
+            </div> <!-- End .content-column-js -->
+
+            <!-- Optional: Gallery of smaller images if needed -->
+            <section class="project-gallery-js container">
+                <h2>Visual Gallery</h2>
+                <div class="gallery-grid-js">
+                    <img src="images/AprilTag Project File/telemetry.jpg" alt="telemetry">
+                    <img src="images/AprilTag Project File/align back.png" alt="back alignment">
+                    <img src="images/AprilTag Project File/robot POV.png" alt="robot POV">
+                </div>
+            </section>
+
+        </div> <!-- End .project-content-wrapper-js -->
+
+        <nav class="project-navigation-js container">
+            <a href="projects.html" class="btn btn-tertiary-js">View All Projects</a>
+            <a href="website_development.html" class="btn btn-primary-js">Next Project →</a>
+        </nav>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Theodor Pirvu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

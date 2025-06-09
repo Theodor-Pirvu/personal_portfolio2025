@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development - Project Details | Theodor Pirvu</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Your main stylesheet -->
+    <!-- Add a link to a new CSS file for this specific project page style if preferred,
+         or add the styles below to your main style.css -->
+</head>
+<body>
+    <header class="minimal-header">
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">Theodor Pirvu</a>
+            </div>
+            <div class="nav-links-minimal">
+                <a href="projects.html">← All Projects</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="project-detail-layout-js">
+
+        <!-- HERO SECTION -->
+        <section class="project-hero-js">
+            <div class="container">
+                <h1 class="project-title-js">Website Development</h1>
+                <p class="project-tagline-js">Designing and building custom websites for clients to help them establish a strong online presence and meet their business goals.</p>
+                <div class="project-meta-js">
+                    <div><strong>Role:</strong> Lead Developer</div>
+                    <div><strong>Year:</strong> 2023</div>
+                    <div><strong>Context:</strong> Personal Side Hustle</div>
+                </div>
+                <!-- <div class="project-tech-stack-js">
+                    <span>Tech Used:</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Figma</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                </div> -->
+                <!-- <div class="project-links-js">
+                    <a href="[Link to Live Demo]" target="_blank" class="btn btn-primary-js">View Live Project →</a>
+                    <a href="[Link to Source Code]" target="_blank" class="btn btn-secondary-js">View Code Repository</a>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="project-content-wrapper-js">
+
+            <div class="container content-column-js">
+                <section id="the-brief">
+                    <h2>Overview</h2>
+                    <p>
+                        I developed personalized websites for business clients and clubs using HTML, CSS, and JavaScript. This very site was also built 
+                        by me using the same processes. I was able to generate some sales for a short period of time during summer 2023 as a side hustle. 
+                    </p>
+                </section>
+
+            </div> 
+
+            <div class="container content-column-js">
+                <section id="the-process">
+                    <h2>The Process & Approach</h2>
+
+                    <h3>
+                        Planning and Creation
+                    </h3>
+                    <p>
+                        I would first discuss with the client what the main purpose for the desired site will be, including what features they want,
+                        color scheme, pages, etc. I would point to some refrences from templates, and then tweak and add to them accordingly to their wishes. 
+                    </p>
+                    <figure class="in-content-image">
+                        <img src="images/websiteDevelopment/example site eb.png" alt="example 1">
+                        <figcaption>Fig. 1: Screenshot of landing page and carousel</figcaption>
+                    </figure>
+                    <p>
+                        Figure 1 is a screenshot from one of my customers from my school who started a detailing business. After the planning stage where he told
+                        me exaclty what he wanted, I started to draw on a white board a visual of what a page of the site would look like, so while creating it I have a 
+                        refrence to view. 
+                    </p>
+                    <p>
+                        Having an HTML and CSS template to build on saves a ton of time, and makes creating features and other components much more simple.   
+                    </p>
+                    <p>
+                        Checking in with the client so that they can see the progress is also very important, so they can give you information on how to improve it while the site is still 
+                        undergoing construction. 
+                    </p>
+
+                    <figure class="in-content-image">
+                        <img src="images/websiteDevelopment/vscode.png" alt="vscode ex">
+                        <figcaption>Fig. 2: Work Environment </figcaption>
+                    </figure>
+
+                    <p>
+                        I use VSCode as my main code editor, and there are a ton of useful features that make progress go smoothly. For instance, I have an extension 
+                        installed which is called LiveServer, which allows me to view my HTML page in real time while editing the code.  
+                    </p>
+                    
+                    <h3>
+                        Deployment
+                    </h3>
+                    <p>
+                        When the site is finished, it's time to deploy it to the internet. I personally use Github Pages to do this, as the process is relatively simple and they
+                        also give you a free domain. A custom domain will cost money, but a monthly fee of using a domain from Google Domains will allow for this to happen.  
+                    </p>
+                    <figure class="in-content-image">
+                        <img src="images/websiteDevelopment/github.png" alt="github ex">
+                        <figcaption>Fig. 3: Prototype site in Github used for deployment</figcaption>
+                    </figure>
+                    
+                </section>
+            </div> <!-- End .content-column-js -->
+
+        </div> <!-- End .project-content-wrapper-js -->
+
+        <nav class="project-navigation-js container">
+            <a href="AprilTag.html" class="btn btn-secondary-js">← Previous Project</a>
+            <a href="projects.html" class="btn btn-tertiary-js">View All Projects</a>
+            <a href="coding_problems.html" class="btn btn-primary-js">Next Project →</a>
+        </nav>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Theodor Pirvu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theodor Pirvu - Personal Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Theodor Pirvu</a>
+            </div>
+            <ul>
+                <li><a href="index.html" class="active">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <!-- Optional: <li><a href="#contact">Contact</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <img src="images/me.png" alt="Theodor Pirvu" class="profile-pic">
+                    <div class="hero-text">
+                        <h1>Hi, I'm Theodor Pirvu</h1> 
+                        <!-- todo: redo this intro -->
+                        <!-- <p class="tagline">Aspiring Electrical Engineer | Time Managment | Problem Solver</p> -->
+                        <p>
+                            Welcome to my personal portfolio! I'm passionate about robotics, programming, CAD, and finance.
+                            Here you'll find a bit about me and some of the projects I've worked on. 
+                        </p>
+                        <a href="projects.html" class="btn">View My Projects</a>
+                        <!-- Optional: <a href="#contact" class="btn btn-secondary">Get In Touch</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <!-- todo: update the icons/do something different here -->
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="images/java.png" alt="Java Icon">
+                        <h3>Java</h3>
+                    </div>
+                    <div class="skill-item">
+                        <img src="images/research.png" alt="R&W Icon">
+                        <h3>Research & Writing</h3>
+                    </div>
+                    <div class="skill-item">
+                        <img src="images/cad.png" alt="CAD Icon">
+                        <h3>CAD</h3>
+                    </div>
+                    <div class="skill-item">
+                        <img src="images/html.png" alt="HTML Icon">
+                        <h3>HTML/CSS</h3>
+                    </div>
+                    <div class="skill-item">
+                        <img src="images/python.png" alt="Python Icon">
+                        <h3>Python</h3>
+                    </div>
+                    <!-- Add more skills as needed -->
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="hero">
+            <div class="container">
+                <h2>Resume</h2>
+                <div class="bgpdf">
+                    <iframe class="nebula" src="pdf/Pirvu Resume proj_ver.pdf"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optional Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <p>Feel free to reach out if you'd like to collaborate or just say hi!</p>
+                <p>Email: <a href="mailto:pirvutheodor@gmail.com">pirvutheodor@gmail.com</a></p>
+                <!-- <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p> -->
+            </div>
+        </section>
+       
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Theodor Pirvu. All rights reserved.</p>
+            <!-- Optional: Add social media links here -->
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

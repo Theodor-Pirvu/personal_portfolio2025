@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Theodor Pirvu</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Theodor Pirvu</a>
+            </div>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <!-- Optional: <li><a href="index.html#contact">Contact</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="projects-gallery">
+            <div class="container">
+                <h1>My Projects</h1>
+                <p class="page-intro">Here's a selection of projects I've worked on. Click on them to learn more!</p>
+
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="images/april tag cover photo.png" alt="Project 1 Title">
+                        <div class="project-info">
+                            <h3>AprilTag Recognition Robot Application</h3>
+                            <p>Developed a robot vision system using AprilTags for real-time localization and field data tracking. Usage of PID control systems, odometry, and Java.</p>
+                            <div class="project-tags">
+                                <span>Java</span>
+                                <span>PID</span>
+                                <span>Odometry</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="AprilTag.html" target="_parent" class="btn">Details</a>
+                                <!-- <a href="#" target="_blank" class="btn btn-secondary">View Code</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="images/cover photo flwb.png" alt="Project 2 Title">
+                        <div class="project-info">
+                            <h3>Freelance Website Development</h3>
+                            <p>Designed and deployed websites for small business clients, resulting in increased client outreach and direct sales.</p>
+                             <div class="project-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="website_development.html" target="_parent" class="btn">Details</a>
+                                <!-- <a href="#" target="_blank" class="btn btn-secondary">View Code</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="images/coding problems cover photo.png" alt="Project 3 Title">
+                        <div class="project-info">
+                            <h3>Programming Practice Problems</h3>
+                            <p>Solved 200+ algorithm and data structure challenges to improve problem-solving efficiency.</p>
+                             <div class="project-tags">
+                                <span>Algorithms</span>
+                                <span>Java</span>
+                                <span>Python</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- <a href="#" target="_blank" class="btn">View Live</a> -->
+                                <a href="coding_problems.html" target="_parent" class="btn">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="images/cad cover photo.png" alt="Project 4 Title">
+                        <div class="project-info">
+                            <h3>Modular Desk</h3>
+                            <p>Engineering a modular desk system with custom drawer compartments using Autodesk Fusion 360.</p>
+                             <div class="project-tags">
+                                <span>Computer Aided Design</span>
+                                <!-- <span>Electrical</span> -->
+                            </div>
+                            <div class="project-links">
+                                <a target="_blank" class="btn btn-secondary">In progress</a>
+                                <!-- <a href="#" target="_blank" class="btn btn-secondary">Details</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more project cards as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Theodor Pirvu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
